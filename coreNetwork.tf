@@ -44,3 +44,24 @@ resource "azurerm_subnet" "tfm-gatewaySubnet" {
 
     address_prefix          = "192.168.0.0/24"
 }
+
+# resource "azurerm_virtual_network_gateway" "tfm-vpnGateway" {
+#     name                = "tfm-vpnGateway"
+#     location            = "${azurerm_resource_group.tfm-coreNetwork.location}"
+#     resource_group_name = "${azurerm_resource_group.tfm-coreNetwork.name}"
+#     tags                = "${azurerm_resource_group.tfm-coreNetwork.tags}"
+# 
+#     type                = "Vpn"
+#     vpn_type            = "RouteBased"
+# 
+#     sku                 = "Basic"
+#     enable_bgp          = true
+# 
+#     ip_configuration {
+#         name                            = "tfm-vpnGwConfig"
+#         public_ip_address_id            = "${azurerm_public_ip.tfm-vpnGatewayPublicIp.id}"
+#         private_ip_address_allocation   = "Dynamic"
+#         subnet_id                       = "${azurerm_subnet.tfm-gatewaySubnet.id}"
+#     }
+# 
+# }
